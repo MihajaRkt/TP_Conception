@@ -19,3 +19,11 @@ Commande(**idCommande**, date)
 LigneCommande(**idLigneCommande**, #idCommande, #idPlat, qte)
 
 Pieges: Je le place dans la table lignecommande pour qu'on reconnaisse plus facilement la quantité de chaque plat d'une commande
+
+# Étape 4 - Les habitués
+### Schéma relationnel
+Client(**idClient**, nom, statut)
+Commande(**idCommande**, date, #idClient)
+
+Pieges: Ma clé étrangère est NOT NULL car on n'est pas obligé d'insérer le nom d'un client
+Il faut utiliser LEFT JOIN pour ne perdre aucune commande
