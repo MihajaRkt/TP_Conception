@@ -27,3 +27,12 @@ Commande(**idCommande**, date, #idClient)
 
 Pieges: Ma clé étrangère est NOT NULL car on n'est pas obligé d'insérer le nom d'un client
 Il faut utiliser LEFT JOIN pour ne perdre aucune commande
+
+# Étape 5 - Serveurs et tables
+### Schéma relationnel
+Serveur(**idServeur**, nom)
+Table(**idTable**, nom)
+Commande(**idCommande**, date, #idClient, #idServeur, #idTable)
+
+Pieges: Une table et une commande sont différentes car une table peut avoir plusieurs commandes en une journée mais une commande n'a pas forcément plusieurs tables
+Le nom table pose probleme en sql car ca se confond avec table(tableau SQL) ce qui montre une erreur
