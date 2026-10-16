@@ -12,3 +12,10 @@ Plat(**idPlat**, nom, prix, #idCategorie)
 
 Pieges: Il vaut mieux ne pas mettre categorie varchar(50) directement dans plat car pour modifier une categorie, nous devons changer chaque ligne contenant cela.
 Exemple: On va changer Boisson par Boisson chaude cela va obliger à changer chaque ligne au lieu d'une seule
+
+# Étape 3 - Les commandes
+### Schéma relationnel
+Commande(**idCommande**, date)
+LigneCommande(**idLigneCommande**, #idCommande, #idPlat, qte)
+
+Pieges: Je le place dans la table lignecommande pour qu'on reconnaisse plus facilement la quantité de chaque plat d'une commande
