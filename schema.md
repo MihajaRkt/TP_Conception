@@ -36,3 +36,13 @@ Commande(**idCommande**, date, #idClient, #idServeur, #idTable)
 
 Pieges: Une table et une commande sont différentes car une table peut avoir plusieurs commandes en une journée mais une commande n'a pas forcément plusieurs tables
 Le nom table pose probleme en sql car ca se confond avec table(tableau SQL) ce qui montre une erreur
+
+# Étape 6 - Les paiements
+### Schéma relationnel
+TypePaiement(**idTypePaiement**, nom)
+Paiements(**idPaiement**, #idTypePaiement, #idCommande, montant)
+
+Pieges: montant_paye dans commande ne suffit pas car ca ne précise pas exactement
+le montant payé par un type de paiement donné
+Si on utilise la contrainte CHECK , On choisit uniquement un seul type de paiement
+

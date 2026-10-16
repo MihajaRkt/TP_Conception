@@ -26,3 +26,14 @@ JOIN serveur s on s.idserveur = c.idserveur
 JOIN lignecommande lc on lc.idcommande = c.idcommande
 JOIN plat p on p.idplat= lc.idplat
 GROUP BY s.nom;
+
+-- commandes: montant dû, montant payé, reste à payer
+SELECT c.idcommande commande, 
+        sum(p.prix * l.qte) montant_du,
+        sum(pa.montant) montant_paye,
+        sum(p.prix * l.qte) - sum(pa.montant) reste_a_payer
+FROM commande c
+JOIN paiement pa on pa.idcommande = c.idcommande
+JOIN lignecommande l on l.idcommande = c.idcommande
+JOIN plat p on p.idplat= l.idplat
+GROUP BY c.idcommande;
